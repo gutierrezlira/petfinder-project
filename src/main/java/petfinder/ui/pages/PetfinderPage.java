@@ -12,9 +12,4 @@ public class PetfinderPage {
     public static final String LOGIN_ERROR_MESSAGE_TEXT = "There was an error logging you into your account. Please try again. If you continue to have trouble logging in, your account may be locked. Your account is locked for 30 minutes after 5 incorrect login attempts. Recover your password.";
     public static final String PASSWORD_ERROR_MESSAGE_TEXT = "There was an error logging you into your account. Please try again. If you continue to have trouble logging in, your account may be locked. Your account is locked for 30 minutes after 5 incorrect login attempts. Recover your password.";
 
-    public static final String VALID_PASSWORD ="hs6BmLKIgVrZuFmnV7bM";
-    public static final String INVALID_PASSWORD ="00000";
-    public static final String VALID_LOGIN = "dawmond@mail.ru";
-    public static final String INVALID_LOGIN = "murmur@mail.ru";
-    public static final String EXPECTED_USER_NAME = "Ali Na";
 }
