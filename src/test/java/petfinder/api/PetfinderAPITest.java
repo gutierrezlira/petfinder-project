@@ -1,7 +1,11 @@
 package petfinder.api;
 
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
+
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
@@ -36,6 +40,30 @@ public class PetfinderAPITest {
                 .statusCode(200)
                 .body("animals.size()", greaterThan(0))
                 .body("animals[0].name", notNullValue());
+    }
+    @Test
+    @DisplayName("Test getting list of 5 pets")
+    public void testGetPetsList() {
+        given()
+                .header("Authorization", "Bearer " + accessToken)
+                .when()
+                .get("/v2/animals")
+                .then()
+                .statusCode(200)
+                .body("animals.size()", greaterThan(0))
+                .body("animals[0].name", notNullValue())
+                .log().all();
+
+        Response response = given()
+                .header("Authorization", "Bearer " + accessToken)
+                .when()
+                .get("/v2/animals");
+
+        List<String> petNames = response.path("animals.name");
+        int numPetsToPrint = 5;
+        for (int i = 0; i < Math.min(numPetsToPrint, petNames.size()); i++) {
+            System.out.println("Pet " + (i + 1) + ": " + petNames.get(i));
+        }
     }
 
     @Test
