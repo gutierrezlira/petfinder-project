@@ -5,7 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import petfinder.ui.pages.PetfinderPage;
-import petfinder.ui.waits.Util;
+import petfinder.ui.util.Util;
 
 
 public class PetfinderStep {
@@ -98,7 +98,6 @@ public class PetfinderStep {
         {
             return "Element is required";
         }
-
         return "Fields are filled";
     }
 }

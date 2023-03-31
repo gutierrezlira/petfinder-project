@@ -1,4 +1,4 @@
-package petfinder.ui.waits;
+package petfinder.ui.util;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
