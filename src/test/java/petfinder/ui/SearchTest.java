@@ -42,14 +42,11 @@ public class SearchTest {
         driver.findElement(PetfinderSearchPage.SEARCH_LOCATION).sendKeys("New York");
         driver.findElement(PetfinderSearchPage.SEARCH_BUTTON).click();
 
-        List<WebElement> petCards = driver.findElements(By.className("u-isVisuallyHidden"));
-
-        System.out.println(petCards);
+        List<WebElement> petCards = driver.findElements(By.cssSelector(".petCard-body-details-hdg .u-isVisuallyHidden"));
 
         for (WebElement petCard : petCards) {
-           // Util.waitForElementLocatedBy(driver, By.className("u-isVisuallyHidden"));
-            String animalType = petCard.findElement(By.className("u-isVisuallyHidden")).getText();
-            assertTrue(animalType.contains("cat"), "Search results contain a non-cat animal");
+            String animalType = petCard.getText();
+            assertTrue(animalType.contains("Cat"), "Search results contain a cat animal");
         }
     }
     @AfterEach
