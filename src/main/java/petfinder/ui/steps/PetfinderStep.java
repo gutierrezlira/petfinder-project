@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import petfinder.ui.pages.PetfinderPage;
+import petfinder.ui.util.UserData;
 import petfinder.ui.util.Util;
 
 
@@ -29,8 +30,8 @@ public class PetfinderStep {
         WebElement emailField = driver.findElement(By.id("Login_Page_username"));
         WebElement passwordField = driver.findElement(By.id("Login_Page_password"));
 
-        emailField.sendKeys(PetfinderPage.VALID_LOGIN);
-        passwordField.sendKeys(PetfinderPage.VALID_PASSWORD);
+        emailField.sendKeys(UserData.VALID_LOGIN);
+        passwordField.sendKeys(UserData.VALID_PASSWORD);
 
         // Click on the "Log In" button
         driver.findElement(By.id("Login_Page_submit")).click();
@@ -48,8 +49,8 @@ public class PetfinderStep {
 
         WebElement emailField = driver.findElement(By.id("Login_Page_username"));
         WebElement passwordField = driver.findElement(By.id("Login_Page_password"));
-        emailField.sendKeys(PetfinderPage.INVALID_LOGIN);
-        passwordField.sendKeys(PetfinderPage.VALID_PASSWORD);
+        emailField.sendKeys(UserData.INVALID_LOGIN);
+        passwordField.sendKeys(UserData.VALID_PASSWORD);
 
         // Click on the "Log In" button
         driver.findElement(By.id("Login_Page_submit")).click();

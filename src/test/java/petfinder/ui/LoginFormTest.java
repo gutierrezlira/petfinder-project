@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import petfinder.ui.driver.Driver;
 import petfinder.ui.pages.PetfinderPage;
 import petfinder.ui.steps.PetfinderStep;
+import petfinder.ui.util.UserData;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -29,7 +30,7 @@ public class LoginFormTest {
      @Test
      @DisplayName("Verify valid login and password")
     public void testValidLoginValidPassword() {
-        assertEquals(PetfinderPage.EXPECTED_USER_NAME, petfinderStep.checkValidLoginAndPassword());
+        assertEquals(UserData.EXPECTED_USER_NAME, petfinderStep.checkValidLoginAndPassword());
     }
 
     @Test
