@@ -10,6 +10,8 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class PetfinderAPITest {
+    public static final String VALID_PASSWORD ="hs6BmLKIgVrZuFmnV7bM";
+    public static final String VALID_LOGIN = "dawmond@mail.ru";
     private static String accessToken;
 
     @BeforeAll
@@ -28,6 +30,20 @@ public class PetfinderAPITest {
                 .then()
                 .statusCode(200);
     }
+
+/*    @Test
+    @DisplayName("Test logging in")
+    public void testLogIn() {
+        given()
+                .contentType("application/x-www-form-urlencoded")
+                .formParam("Email", "dawmond@mail.ru")
+                .formParam("Password", "hs6BmLKIgVrZuFmnV7bM")
+                .when()
+                .post("https://www.petfinder.com/user/login/")
+                .then()
+                .statusCode(200)
+                .log().headers();
+    }*/
 
     @Test
     @DisplayName("Test getting pets")
@@ -76,6 +92,13 @@ public class PetfinderAPITest {
                 .when()
                 .get("/v2/animals")
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .log().body()
+                .body("animals[0].type", equalTo("Dog"))
+                .body("animals[1].type", equalTo("Dog"))
+                .body("animals[2].type", equalTo("Dog"))
+                .body("animals[3].type", equalTo("Dog"))
+                .body("animals[4].type", equalTo("Dog"));
+        //.body("animals[].type", everyItem(equalTo("Dog")))
     }
 }
