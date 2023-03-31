@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import petfinder.ui.pages.PetfinderPage;
+import petfinder.ui.util.FillLogInForm;
 import petfinder.ui.util.UserData;
 import petfinder.ui.util.Util;
 
@@ -25,13 +26,8 @@ public class PetfinderStep {
     public String checkValidLoginAndPassword() {
 
         // Fill in login and password fields
-        WebElement loginForm = Util.waitForElementLocatedBy(driver, By.xpath(PetfinderPage.LOGIN_FORM));
-        loginForm.click();
-        WebElement emailField = driver.findElement(By.id("Login_Page_username"));
-        WebElement passwordField = driver.findElement(By.id("Login_Page_password"));
-
-        emailField.sendKeys(UserData.VALID_LOGIN);
-        passwordField.sendKeys(UserData.VALID_PASSWORD);
+        FillLogInForm loginForm = new FillLogInForm(driver);
+        loginForm.fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD);
 
         // Click on the "Log In" button
         driver.findElement(By.id("Login_Page_submit")).click();
@@ -45,12 +41,8 @@ public class PetfinderStep {
     public String invalidLogin(){
 
         // Fill in login and password fields
-        Util.waitForElementLocatedBy(driver, By.xpath(PetfinderPage.LOGIN_FORM)).click();
-
-        WebElement emailField = driver.findElement(By.id("Login_Page_username"));
-        WebElement passwordField = driver.findElement(By.id("Login_Page_password"));
-        emailField.sendKeys(UserData.INVALID_LOGIN);
-        passwordField.sendKeys(UserData.VALID_PASSWORD);
+        FillLogInForm loginForm = new FillLogInForm(driver);
+        loginForm.fillLoginForm(UserData.INVALID_LOGIN, UserData.VALID_PASSWORD);
 
         // Click on the "Log In" button
         driver.findElement(By.id("Login_Page_submit")).click();
@@ -64,12 +56,8 @@ public class PetfinderStep {
     public String invalidPassword(){
 
         // Fill in login and password fields
-        Util.waitForElementLocatedBy(driver, By.xpath(PetfinderPage.LOGIN_FORM)).click();
-
-        WebElement emailField = driver.findElement(By.id("Login_Page_username"));
-        WebElement passwordField = driver.findElement(By.id("Login_Page_password"));
-        emailField.sendKeys("dawmond@mail.ru");
-        passwordField.sendKeys("000000");
+        FillLogInForm loginForm = new FillLogInForm(driver);
+        loginForm.fillLoginForm(UserData.VALID_LOGIN, UserData.INVALID_PASSWORD);
 
         // Click on the "Log In" button
         driver.findElement(By.id("Login_Page_submit")).click();
@@ -82,12 +70,8 @@ public class PetfinderStep {
     }
 
     public String fillEmptyFields(){
-        Util.waitForElementLocatedBy(driver, By.xpath(PetfinderPage.LOGIN_FORM)).click();
-
-        WebElement emailField = driver.findElement(By.id("Login_Page_username"));
-        WebElement passwordField = driver.findElement(By.id("Login_Page_password"));
-        emailField.sendKeys("");
-        passwordField.sendKeys("");
+        FillLogInForm loginForm = new FillLogInForm(driver);
+        loginForm.fillLoginForm("", "");
 
         // Нажатие кнопки "Войти"
         driver.findElement(By.id("Login_Page_submit")).click();
