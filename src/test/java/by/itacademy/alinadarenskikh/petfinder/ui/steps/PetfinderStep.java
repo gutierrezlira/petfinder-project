@@ -26,14 +26,7 @@ public class PetfinderStep {
 
     public String checkValidLoginAndPassword() {
 
-        // Fill in login and password fields
-        FillLogInForm loginForm = new FillLogInForm(driver);
-        loginForm.fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD);
-
-        // Click on the "Log In" button
-        driver.findElement(By.id("Login_Page_submit")).click();
-
-        // Check for successful login
+        PetfinderPage.fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD);
         WebElement userNameLabel = driver.findElement(By.xpath(PetfinderPage.PROFILE_VERIFICATION_BUTTON));
 
         return userNameLabel.getText();
@@ -41,14 +34,7 @@ public class PetfinderStep {
 
     public String invalidLogin(){
 
-        // Fill in login and password fields
-        FillLogInForm loginForm = new FillLogInForm(driver);
-        loginForm.fillLoginForm(UserData.INVALID_LOGIN, UserData.VALID_PASSWORD);
-
-        // Click on the "Log In" button
-        driver.findElement(By.id("Login_Page_submit")).click();
-
-        // Check for login error message
+        PetfinderPage.fillLoginForm(UserData.INVALID_LOGIN, UserData.VALID_PASSWORD);
         String actualUserName = Util.waitForElementLocatedBy(driver, By.xpath(PetfinderPage.LOGIN_AND_PASSWORD_ERROR_MESSAGE)).getText();
 
        return actualUserName;
@@ -56,14 +42,8 @@ public class PetfinderStep {
 
     public String invalidPassword(){
 
-        // Fill in login and password fields
-        FillLogInForm loginForm = new FillLogInForm(driver);
-        loginForm.fillLoginForm(UserData.VALID_LOGIN, UserData.INVALID_PASSWORD);
+        PetfinderPage.fillLoginForm(UserData.VALID_LOGIN, UserData.INVALID_PASSWORD);
 
-        // Click on the "Log In" button
-        driver.findElement(By.id("Login_Page_submit")).click();
-
-        // Check for password error message
         WebElement userNameLabel = driver.findElement(By.xpath(PetfinderPage.LOGIN_AND_PASSWORD_ERROR_MESSAGE));
         String actualUserName = userNameLabel.getText();
 
@@ -71,11 +51,8 @@ public class PetfinderStep {
     }
 
     public String fillEmptyFields(){
-        FillLogInForm loginForm = new FillLogInForm(driver);
-        loginForm.fillLoginForm("", "");
 
-        // Нажатие кнопки "Войти"
-        driver.findElement(By.id("Login_Page_submit")).click();
+        PetfinderPage.fillLoginForm("", "");
 
         WebElement inputElement = driver.findElement(By.id("Login_Page_username"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
