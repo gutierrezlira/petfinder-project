@@ -33,14 +33,9 @@ public class PetfinderPage {
         driver.findElement(By.id("Login_Page_submit")).click();
     }
 
-    public static String getConfirmationText(WebDriver driver, By by) {
+    public static String getConfirmationData(WebDriver driver, By by) {
         String actualUserName = Util.waitForElementLocatedBy(driver, by).getText();
         return actualUserName;
-    }
-
-    public static WebElement getFooter() {
-        WebElement footer = driver.findElement(By.xpath(PetfinderPage.FOOTER_XPATH));
-        return footer;
     }
 
 }

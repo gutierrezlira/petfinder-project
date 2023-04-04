@@ -18,7 +18,7 @@ public class PetfinderStep {
 
     public String getFooterText(){
 
-        return PetfinderPage.getFooter().getText();
+        return driver.findElement(By.xpath(PetfinderPage.FOOTER_XPATH)).getText();
     }
 
 
@@ -27,8 +27,8 @@ public class PetfinderStep {
         PetfinderPage
                 .fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD);
 
-
-        return PetfinderPage.getConfirmationText(driver, By.xpath(PetfinderPage.PROFILE_VERIFICATION_BUTTON));
+        return PetfinderPage
+                .getConfirmationData(driver, By.xpath(PetfinderPage.PROFILE_VERIFICATION_BUTTON));
     }
 
     public String invalidLogin(){
@@ -36,7 +36,8 @@ public class PetfinderStep {
         PetfinderPage
                 .fillLoginForm(UserData.INVALID_LOGIN, UserData.VALID_PASSWORD);
 
-        return PetfinderPage.getConfirmationText(driver, By.xpath(PetfinderPage.LOGIN_AND_PASSWORD_ERROR_MESSAGE));
+        return PetfinderPage
+                .getConfirmationData(driver, By.xpath(PetfinderPage.LOGIN_AND_PASSWORD_ERROR_MESSAGE));
     }
 
 
@@ -46,7 +47,8 @@ public class PetfinderStep {
         PetfinderPage
                 .fillLoginForm(UserData.VALID_LOGIN, UserData.INVALID_PASSWORD);
 
-        return PetfinderPage.getConfirmationText(driver, By.xpath(PetfinderPage.LOGIN_AND_PASSWORD_ERROR_MESSAGE));
+        return PetfinderPage
+                .getConfirmationData(driver, By.xpath(PetfinderPage.LOGIN_AND_PASSWORD_ERROR_MESSAGE));
     }
 
     public String fillEmptyFields(){
