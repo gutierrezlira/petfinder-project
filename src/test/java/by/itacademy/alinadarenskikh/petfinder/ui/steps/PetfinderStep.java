@@ -1,13 +1,14 @@
-package petfinder.ui.steps;
+package by.itacademy.alinadarenskikh.petfinder.ui.steps;
 
+import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderPage;
+import by.itacademy.alinadarenskikh.petfinder.ui.util.FillLogInForm;
+import by.itacademy.alinadarenskikh.petfinder.ui.util.UserData;
+import by.itacademy.alinadarenskikh.petfinder.ui.util.Util;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import petfinder.ui.pages.PetfinderPage;
-import petfinder.ui.util.FillLogInForm;
-import petfinder.ui.util.UserData;
-import petfinder.ui.util.Util;
+
 
 
 public class PetfinderStep {

@@ -1,14 +1,14 @@
-package petfinder.ui;
+package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
+import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
+import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderSearchPage;
+import by.itacademy.alinadarenskikh.petfinder.ui.util.Util;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import petfinder.ui.driver.Driver;
-import petfinder.ui.pages.PetfinderSearchPage;
-import petfinder.ui.util.Util;
 
 import java.util.Collections;
 import java.util.List;

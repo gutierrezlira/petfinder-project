@@ -1,4 +1,4 @@
-package petfinder.ui.util;
+package by.itacademy.alinadarenskikh.petfinder.ui.util;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

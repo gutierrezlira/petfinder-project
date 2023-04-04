@@ -1,9 +1,9 @@
-package petfinder.ui.util;
+package by.itacademy.alinadarenskikh.petfinder.ui.util;
 
+import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import petfinder.ui.pages.PetfinderPage;
 
 public class FillLogInForm {
     public WebDriver driver;

@@ -1,12 +1,12 @@
-package petfinder.ui;
+package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
-import petfinder.ui.driver.Driver;
-import petfinder.ui.pages.PetfinderPage;
-import petfinder.ui.steps.PetfinderStep;
-import petfinder.ui.util.UserData;
+import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
+import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderPage;
+import by.itacademy.alinadarenskikh.petfinder.ui.steps.PetfinderStep;
+import by.itacademy.alinadarenskikh.petfinder.ui.util.UserData;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

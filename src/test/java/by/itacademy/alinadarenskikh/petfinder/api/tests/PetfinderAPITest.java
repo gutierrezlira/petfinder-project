@@ -1,5 +1,6 @@
-package petfinder.api;
+package by.itacademy.alinadarenskikh.petfinder.api.tests;
 
+import by.itacademy.alinadarenskikh.petfinder.api.token.PetfinderGetToken;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;

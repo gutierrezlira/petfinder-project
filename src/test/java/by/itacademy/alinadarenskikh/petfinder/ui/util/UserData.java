@@ -1,4 +1,4 @@
-package petfinder.ui.util;
+package by.itacademy.alinadarenskikh.petfinder.ui.util;
 
 public class UserData {
     public static final String VALID_PASSWORD ="hs6BmLKIgVrZuFmnV7bM";
