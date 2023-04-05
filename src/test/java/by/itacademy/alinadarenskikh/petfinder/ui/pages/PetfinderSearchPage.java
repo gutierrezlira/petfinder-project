@@ -20,7 +20,7 @@ public class PetfinderSearchPage {
     final static public By SEARCH_BUTTON = By.className("iconSearch");
     final static public String LOCATION_KEY = "New York";
     final static public String TYPE_OF_ANIMAL = "cat";
-    final static public String CURRENT_LOCATION = "//*[@data-test ='Suggester_Current_Label']";
+    final static public String CURRENT_LOCATION = "//*[@id=\"Site\"]//span[@data-test='Suggester_Current_Label']";
 
     public static void sendKeys(String animalType, String location) {
         driver.findElement(SEARCH_ANIMAL_TYPE).sendKeys(animalType);

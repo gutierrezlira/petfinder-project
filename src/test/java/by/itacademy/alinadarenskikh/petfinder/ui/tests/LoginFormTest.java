@@ -11,12 +11,12 @@ import by.itacademy.alinadarenskikh.petfinder.ui.util.UserData;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginFormTest {
-    WebDriver  driver = Driver.getDriver();
+    WebDriver  driver;
     private PetfinderStep petfinderStep;
 
     @BeforeEach
     public void setUp() {
-
+        driver = Driver.getDriver();
         driver.get("https://www.petfinder.com");
         petfinderStep = new PetfinderStep(driver);
     }

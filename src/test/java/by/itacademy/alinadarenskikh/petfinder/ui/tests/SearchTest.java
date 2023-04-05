@@ -2,7 +2,6 @@ package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
 import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderSearchPage;
-import by.itacademy.alinadarenskikh.petfinder.ui.steps.PetfinderSearchStep;
 import by.itacademy.alinadarenskikh.petfinder.ui.util.Util;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,11 +16,12 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SearchTest {
-    WebDriver driver = Driver.getDriver();
+    WebDriver driver;
     PetfinderSearchPage searchPage;
 
     @BeforeEach
     public void setUp() {
+        driver = Driver.getDriver();
         driver.get("https://www.petfinder.com");
         searchPage = new PetfinderSearchPage(driver);
     }
@@ -35,14 +35,12 @@ public class SearchTest {
     }
 
     @Test
-    public void searchResultIsLocationIsCorrect() throws InterruptedException {
-        driver.findElement(PetfinderSearchPage.SEARCH_ANIMAL_TYPE).sendKeys("cat");
-        driver.findElement(PetfinderSearchPage.SEARCH_LOCATION).sendKeys("New York");
-        driver.findElement(PetfinderSearchPage.SEARCH_BUTTON).click();
+    public void searchResultIsLocationIsCorrect() {
+        PetfinderSearchPage.sendKeys(PetfinderSearchPage.TYPE_OF_ANIMAL, PetfinderSearchPage.LOCATION_KEY);
 
-        String actualLocation = Util.waitForElementLocatedBy(driver, By.xpath(PetfinderSearchPage.CURRENT_LOCATION)).getText();
-  Thread.sleep(5000);
-        assertEquals(PetfinderSearchPage.LOCATION_KEY, actualLocation);
+        WebElement actualLocation = driver.findElement(By.xpath(PetfinderSearchPage.CURRENT_LOCATION));
+
+        assertEquals(PetfinderSearchPage.LOCATION_KEY, actualLocation.getText());
     }
 
     @Test
