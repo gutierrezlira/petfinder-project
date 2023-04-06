@@ -43,7 +43,7 @@ public class LoginFormTest {
         petPage.fillLoginForm(UserData.INVALID_LOGIN, UserData.VALID_PASSWORD)
         .clickSubmitLogInForm();
 
-        assertEquals(petPage.LOGIN_ERROR_MESSAGE_TEXT, petPage.getErrorMassage());
+        assertEquals(petPage.ERROR_MESSAGE_TEXT, petPage.getErrorMassage());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class LoginFormTest {
         petPage.fillLoginForm(UserData.VALID_LOGIN, UserData.INVALID_PASSWORD)
         .clickSubmitLogInForm();
 
-        assertEquals(petPage.PASSWORD_ERROR_MESSAGE_TEXT, petPage.getErrorMassage());
+        assertEquals(petPage.ERROR_MESSAGE_TEXT, petPage.getErrorMassage());
     }
 
   @Test
