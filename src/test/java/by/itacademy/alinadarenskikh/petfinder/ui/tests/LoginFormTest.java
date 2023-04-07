@@ -31,17 +31,19 @@ public class LoginFormTest {
      @Test
      @DisplayName("Verify valid login and password")
     public void testValidLoginValidPassword() {
-        petPage.fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD)
-            .clickSubmitLogInForm()
-            .getActualLogInProfileName();
+        petPage
+                .fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD)
+                 .clickSubmitLogInForm()
+                 .getActualLogInProfileName();
         assertEquals(UserData.EXPECTED_USER_NAME, petPage.getActualLogInProfileName());
     }
 
     @Test
     @DisplayName("Verify invalid login")
     public void testInvalidLogin() {
-        petPage.fillLoginForm(UserData.INVALID_LOGIN, UserData.VALID_PASSWORD)
-        .clickSubmitLogInForm();
+        petPage
+                .fillLoginForm(UserData.INVALID_LOGIN, UserData.VALID_PASSWORD)
+                .clickSubmitLogInForm();
 
         assertEquals(petPage.ERROR_MESSAGE_TEXT, petPage.getErrorMassage());
     }
@@ -49,8 +51,9 @@ public class LoginFormTest {
     @Test
     @DisplayName("Verify invalid password")
     public void testInvalidPassword() {
-        petPage.fillLoginForm(UserData.VALID_LOGIN, UserData.INVALID_PASSWORD)
-        .clickSubmitLogInForm();
+        petPage
+                .fillLoginForm(UserData.VALID_LOGIN, UserData.INVALID_PASSWORD)
+                .clickSubmitLogInForm();
 
         assertEquals(petPage.ERROR_MESSAGE_TEXT, petPage.getErrorMassage());
     }
