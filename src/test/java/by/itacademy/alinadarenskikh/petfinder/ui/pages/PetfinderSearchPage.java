@@ -15,7 +15,7 @@ public class PetfinderSearchPage {
 
     public PetfinderSearchPage(WebDriver driver) {
         this.driver = driver;
-        driver.get("https://www.petfinder.com/");
+        driver.get(URL);
     }
 
     public final String URL = "https://www.petfinder.com";
@@ -24,7 +24,7 @@ public class PetfinderSearchPage {
     final public By SEARCH_BUTTON = By.className("iconSearch");
     final public String LOCATION_KEY = "New York";
     final public String TYPE_OF_ANIMAL = "cat";
-    final public String CURRENT_LOCATION = "//*[@id='Site']//span[@data-test='Suggester_Current_Label']";
+    final public String CURRENT_LOCATION = "//span[@data-test='Suggester_Current_Label']";
 
     public PetfinderSearchPage sendKeys(String animalType, String location) {
         driver.findElement(SEARCH_ANIMAL_TYPE).sendKeys(animalType);

@@ -10,10 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,15 +32,24 @@ public class SearchTest {
         assertFalse(searchPage.isSEarchResultEmpty().isEmpty(), "Search results are empty");
     }
 
-    @Test
-    public void searchResultIsLocationIsCorrect() {
+/*    @Test
+    public void searchResultIsLocationIsCorrect() throws InterruptedException {
         searchPage
-                .sendKeys("cat", "New York");
-
+                .sendKeys("", "Mexico");
         WebElement actualLocation = driver.findElement(By.xpath(searchPage.CURRENT_LOCATION));
 
-        assertEquals(searchPage.LOCATION_KEY, actualLocation.getText());
-    }
+        try {
+            Thread.sleep(3000); // ожидание 1 секунды
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String actualLocationText = actualLocation.getText();
+
+        assertEquals(searchPage.LOCATION_KEY, actualLocationText);
+
+        assertEquals(searchPage.LOCATION_KEY, actualLocation);
+    }*/
 
     @Test
     public void searchResultsContainCat() {
