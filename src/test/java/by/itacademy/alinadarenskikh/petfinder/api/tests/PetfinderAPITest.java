@@ -1,5 +1,6 @@
-package petfinder.api;
+package by.itacademy.alinadarenskikh.petfinder.api.tests;
 
+import by.itacademy.alinadarenskikh.petfinder.api.token.PetfinderGetToken;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
@@ -31,7 +32,7 @@ public class PetfinderAPITest {
                 .statusCode(200);
     }
 
-/*    @Test
+    @Test
     @DisplayName("Test logging in")
     public void testLogIn() {
         given()
@@ -43,7 +44,21 @@ public class PetfinderAPITest {
                 .then()
                 .statusCode(200)
                 .log().headers();
-    }*/
+    }
+
+    @Test
+    @DisplayName("Test loggin with invalid data")
+    public void testInvalidLogIn() {
+        given()
+                .contentType("application/x-www-form-urlencoded")
+                .formParam("Email", "damond@mil.ru")
+                .formParam("Password", "0000")
+                .when()
+                .post("https://www.petfinder.com/user/login/")
+                .then()
+                .statusCode(401)
+                .log().headers();
+    }
 
     @Test
     @DisplayName("Test getting pets")
