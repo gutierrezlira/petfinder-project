@@ -12,6 +12,8 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class SearchWithConditions {
     public static WebDriver driver = Driver.getDriver();
+    Actions actions = new Actions(driver);
+
 
     public SearchWithConditions(WebDriver driver) {
         this.driver = driver;
@@ -21,6 +23,7 @@ public class SearchWithConditions {
     }
 
     public final String URL = "https://www.petfinder.com";
+    public final String expectedText = "Long Hair Kitten Female";
 
     @FindBy(className = "iconSearch")
     private WebElement searchIcon;
@@ -77,7 +80,6 @@ public class SearchWithConditions {
     public SearchWithConditions clickLongHairOption() {
         Util.waitForElementLocatedBy(driver, By.id("coat-select_List_Box_Btn")).click();
 
-        Actions actions = new Actions(driver);
         actions.pause(1000).perform();
         driver.findElements(By.xpath("//*[@class='filterList-list-qty u-hr7x']")).get(3).click();
         return this;
@@ -85,14 +87,14 @@ public class SearchWithConditions {
 
     public SearchWithConditions clickGenderSelectButton() {
         Util.waitForElementLocatedBy(driver, By.xpath("//*[@id='gender-select_List_Box_Btn']")).click();
-        Actions actions = new Actions(driver);
+
         actions.pause(1000).perform();
         driver.findElements(By.xpath("//*[@class='filterList-list-chk-svg']")).get(1).click();
         return this;
     }
 
     public SearchWithConditions clickSomeCat(){
-        Actions actions = new Actions(driver);
+
         actions.pause(1000).perform();
         driver.findElements(By.xpath("//*[@class='petCard petCard_searchResult ']")).get(3).click();
         actions.pause(1000).perform();
