@@ -10,12 +10,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class SearchWithConditions {
+public class SearchWithConditionsPage {
     public static WebDriver driver = Driver.getDriver();
     Actions actions = new Actions(driver);
 
 
-    public SearchWithConditions(WebDriver driver) {
+    public SearchWithConditionsPage(WebDriver driver) {
         this.driver = driver;
         driver.get(URL);
         PageFactory.initElements(driver, this);
@@ -56,17 +56,17 @@ public class SearchWithConditions {
     @FindBy(xpath = "//*[@class='hrArray hrArray_bulletDivided u-inlineBlock']")
     private WebElement searchResultText;
 
-    public SearchWithConditions clickSearchIcon() {
+    public SearchWithConditionsPage clickSearchIcon() {
         searchIcon.click();
         return this;
     }
-    public SearchWithConditions clickCatsOption() {
+    public SearchWithConditionsPage clickCatsOption() {
        catsOption.click();
        findPetsButton.click();
         return this;
     }
 
-    public SearchWithConditions selectAge() {
+    public SearchWithConditionsPage selectAge() {
 
         Util.waitForElementLocatedBy(driver, AGE_SELECT_BUTTON ).click();
         Util.waitForElementLocatedBy(driver, KITTEN_SELECT_BUTTON).click();
@@ -75,14 +75,14 @@ public class SearchWithConditions {
     }
 
 
-    public SearchWithConditions clickLongHairOption() {
+    public SearchWithConditionsPage clickLongHairOption() {
         coatSelectButton.click();
         actions.pause(1000).perform();
         driver.findElements(By.xpath(COAT_SELECT_BUTTON)).get(3).click();
         return this;
     }
 
-    public SearchWithConditions clickGenderSelectButton() {
+    public SearchWithConditionsPage clickGenderSelectButton() {
         genderSelectButton.click();
         actions.pause(1000).perform();
         driver.findElements(By.xpath(GENDER_SELECT_BUTTON)).get(1).click();
@@ -90,7 +90,7 @@ public class SearchWithConditions {
         return this;
     }
 
-    public SearchWithConditions clickSomeCat(){
+    public SearchWithConditionsPage clickSomeCat(){
 
         actions.pause(1000).perform();
         driver.findElements(By.xpath(GET_CAT_CARD)).get(3).click();
