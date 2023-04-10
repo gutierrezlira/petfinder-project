@@ -25,6 +25,13 @@ public class SearchWithConditions {
     public final String URL = "https://www.petfinder.com";
     public final String expectedText = "Long Hair Kitten Female";
 
+    public final String GET_CAT_CARD = "//*[@class='petCard petCard_searchResult ']";
+    public final String GENDER_SELECT_BUTTON = "//*[@class='filterList-list-chk-svg']";
+    public final String COAT_SELECT_BUTTON = "//*[@class='filterList-list-qty u-hr7x']";
+    public final By KITTEN_SELECT_BUTTON = By.cssSelector(".filterList-list-chk-label .filterList-list-chk-svg");
+
+    public final By AGE_SELECT_BUTTON = By.xpath("//div[@id='age-select_List_Box_Btn']");
+
     @FindBy(className = "iconSearch")
     private WebElement searchIcon;
 
@@ -34,25 +41,16 @@ public class SearchWithConditions {
     @FindBy(xpath = "//button[contains(text(),'Find Pets!')]")
     private WebElement findPetsButton;
 
-    @FindBy(id = "age-select_List_Box_Btn")
-    private WebElement ageSelectButton;
-
     @FindBy(css = ".filterList-list-chk-label .filterList-list-chk-svg")
     private WebElement longHairOption;
 
     @FindBy(id = "coat-select_List_Box_Btn")
     private WebElement coatSelectButton;
 
-    @FindBy(xpath = "//*[@class='filterList-list-qty u-hr7x'][4]")
-    private WebElement kittenOption;
-
     @FindBy(xpath = "//*[@id='gender-select_List_Box_Btn']")
     private WebElement genderSelectButton;
 
-    @FindBy(xpath = "//*[@class='filterList-list-chk-svg'][2]")
-    private WebElement femaleOption;
-
-    @FindBy(xpath = "//*[@class='petCard petCard_searchResult '][4]")
+    @FindBy(xpath = "//*[@class='petCard petCard_searchResult ']")
     private WebElement fourthPet;
 
     @FindBy(xpath = "//*[@class='hrArray hrArray_bulletDivided u-inlineBlock']")
@@ -70,38 +68,36 @@ public class SearchWithConditions {
 
     public SearchWithConditions selectAge() {
 
-        Util.waitForElementLocatedBy(driver, By.xpath("//div[@id='age-select_List_Box_Btn']")).click();
-        Util.waitForElementLocatedBy(driver, By.cssSelector(".filterList-list-chk-label .filterList-list-chk-svg")).click();
+        Util.waitForElementLocatedBy(driver, AGE_SELECT_BUTTON ).click();
+        Util.waitForElementLocatedBy(driver, KITTEN_SELECT_BUTTON).click();
 
         return this;
     }
 
 
     public SearchWithConditions clickLongHairOption() {
-        Util.waitForElementLocatedBy(driver, By.id("coat-select_List_Box_Btn")).click();
-
+        coatSelectButton.click();
         actions.pause(1000).perform();
-        driver.findElements(By.xpath("//*[@class='filterList-list-qty u-hr7x']")).get(3).click();
+        driver.findElements(By.xpath(COAT_SELECT_BUTTON)).get(3).click();
         return this;
     }
 
     public SearchWithConditions clickGenderSelectButton() {
-        Util.waitForElementLocatedBy(driver, By.xpath("//*[@id='gender-select_List_Box_Btn']")).click();
-
+        genderSelectButton.click();
         actions.pause(1000).perform();
-        driver.findElements(By.xpath("//*[@class='filterList-list-chk-svg']")).get(1).click();
+        driver.findElements(By.xpath(GENDER_SELECT_BUTTON)).get(1).click();
+
         return this;
     }
 
     public SearchWithConditions clickSomeCat(){
 
         actions.pause(1000).perform();
-        driver.findElements(By.xpath("//*[@class='petCard petCard_searchResult ']")).get(3).click();
+        driver.findElements(By.xpath(GET_CAT_CARD)).get(3).click();
         actions.pause(1000).perform();
         return this;
     }
     public String getSearchResultText() {
-        WebElement searchResultText = driver.findElement(By.xpath("//*[@class='hrArray hrArray_bulletDivided u-inlineBlock']"));
 
         return searchResultText.getText();
     }

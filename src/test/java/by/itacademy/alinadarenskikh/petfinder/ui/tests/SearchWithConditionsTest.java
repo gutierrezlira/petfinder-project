@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class FindYourBestMatchTest {
+public class SearchWithConditionsTest {
     WebDriver driver;
     SearchWithConditions searchPage;
 
