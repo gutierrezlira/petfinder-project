@@ -32,7 +32,7 @@ public class SearchTest {
         assertFalse(searchPage.isSEarchResultEmpty().isEmpty(), "Search results are empty");
     }
 
-/*    @Test
+ /*  @Test
     public void searchResultIsLocationIsCorrect() throws InterruptedException {
         searchPage
                 .sendKeys("", "Mexico");
@@ -59,10 +59,10 @@ public class SearchTest {
             assertTrue(searchPage.getListOfSearchResult(), "Search results contain a cat animal");
         }
 
-    @AfterEach
+/*    @AfterEach
     public void tearDown(){
         {
             Driver.close();
         }
-    }
+    }*/
 }

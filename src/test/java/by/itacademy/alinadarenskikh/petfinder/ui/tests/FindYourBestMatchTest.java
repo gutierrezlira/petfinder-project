@@ -1,38 +1,43 @@
 package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
-import by.itacademy.alinadarenskikh.petfinder.ui.pages.FindYourBestMatchPage;
+import by.itacademy.alinadarenskikh.petfinder.ui.pages.SearchWithConditions;
+import by.itacademy.alinadarenskikh.petfinder.ui.util.Util;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FindYourBestMatchTest {
     WebDriver driver;
-    FindYourBestMatchPage matchPage;
+    SearchWithConditions searchPage;
 
     @BeforeEach
     public void setUp() {
         driver = Driver.getDriver();
-        matchPage = new FindYourBestMatchPage();
-        driver.get("https://www.petfinder.com/user/profile/create/?experience=loginAtEnd");
+        searchPage = new SearchWithConditions(driver);
+        driver.get("https://www.petfinder.com");
 
     }
 
-/*    @Test
-    public void findPerfectPetMatchTest() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//span[contains(text(),'More...')]")).click();
-        driver.findElement(By.xpath("//button[@id='options-trigger-1']//span[@class='inputField_inputField-value__wbXN5']")).click();
-        driver.findElement(By.xpath())
+   @Test
+    public void findPerfectPetMatchTest()  {
+       searchPage
+        .clickSearchIcon()
+       .clickCatsOption()
+       .selectAge()
+       .clickLongHairOption()
+       .clickGenderSelectButton()
+       .clickSomeCat();
 
-        driver.findElement(By.xpath("//div[contains(text(),'done')]"));
+       String expectedText = "Long Hair Kitten Female";
+       assertTrue(searchPage.getSearchResultText().endsWith(expectedText), "Search result does not end with expected text: " + expectedText);
 
-    }*/
-
-
-
+    }
 
     @AfterEach
     public void tearDown(){

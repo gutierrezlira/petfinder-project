@@ -32,7 +32,7 @@ public class LoginFormTest {
      @DisplayName("Verify valid login and password")
     public void testValidLoginValidPassword() {
         petPage
-                .fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD)
+                 .fillLoginForm(UserData.VALID_LOGIN, UserData.VALID_PASSWORD)
                  .clickSubmitLogInForm()
                  .getActualLogInProfileName();
         assertEquals(UserData.EXPECTED_USER_NAME, petPage.getActualLogInProfileName());
