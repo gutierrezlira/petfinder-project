@@ -1,4 +1,4 @@
-package petfinder.ui.driver;
+package by.itacademy.alinadarenskikh.petfinder.ui.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

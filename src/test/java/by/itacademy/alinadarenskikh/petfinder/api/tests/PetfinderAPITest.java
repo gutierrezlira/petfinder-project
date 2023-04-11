@@ -1,8 +1,11 @@
-package petfinder.api;
+package by.itacademy.alinadarenskikh.petfinder.api.tests;
 
+import by.itacademy.alinadarenskikh.petfinder.api.token.PetfinderGetToken;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
@@ -31,7 +34,7 @@ public class PetfinderAPITest {
                 .statusCode(200);
     }
 
-/*    @Test
+    @Test
     @DisplayName("Test logging in")
     public void testLogIn() {
         given()
@@ -43,7 +46,21 @@ public class PetfinderAPITest {
                 .then()
                 .statusCode(200)
                 .log().headers();
-    }*/
+    }
+
+    @Test
+    @DisplayName("Test loggin with invalid data")
+    public void testInvalidLogIn() {
+        given()
+                .contentType("application/x-www-form-urlencoded")
+                .formParam("Email", "damond@mil.ru")
+                .formParam("Password", "0000")
+                .when()
+                .post("https://www.petfinder.com/user/login/")
+                .then()
+                .statusCode(401)
+                .log().headers();
+    }
 
     @Test
     @DisplayName("Test getting pets")
@@ -101,4 +118,25 @@ public class PetfinderAPITest {
                 .body("animals[4].type", equalTo("Dog"));
         //.body("animals[].type", everyItem(equalTo("Dog")))
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Young, bird, 10",
+            "Adult, cat, 10",
+            "Senior, dog, 10"
+    })
+    public void testQuery(String age, String animal, int count) {
+
+        Response response = given()
+                .header("Authorization", "Bearer " + accessToken)
+                .queryParam("age", age)
+                .queryParam("type", animal)
+                .queryParam("limit", count)
+                .get("/v2/animals");
+
+        Assertions.assertEquals(200, response.getStatusCode());
+        Assertions.assertNotNull(response.getBody().jsonPath().getList("animals"));
+        Assertions.assertTrue(response.getBody().jsonPath().getList("animals").size() <= count);
+    }
+
 }
