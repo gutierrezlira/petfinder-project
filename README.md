@@ -1,4 +1,6 @@
 # petfinder-project
+![Petfinder Logo](https://raw.githubusercontent.com/gutierrezlira/petfinder-project/a330d7ab5e77b2a238cdf7202a1b95cd5909ffc7/dog-adoption-website-petfinder.jpg)
+
 Добро пожаловать в репозиторий проекта Petfinder! Здесь вы найдете автоматизированные тесты UI и API частей сайта Petfinder.
 
 Структура репозитория состоит из двух основных папок: ui_tests и api_tests. Папка ui_tests содержит автоматизированные UI тесты, написанные с использованием Selenium WebDriver и языка программирования Java. Эти тесты позволяют проверить, что пользовательский интерфейс сайта Petfinder работает должным образом и соответствует ожиданиям пользователя.
