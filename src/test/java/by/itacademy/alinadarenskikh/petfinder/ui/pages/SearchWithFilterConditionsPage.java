@@ -10,12 +10,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class SearchWithConditionsPage {
+public class SearchWithFilterConditionsPage {
     public static WebDriver driver = Driver.getDriver();
     Actions actions = new Actions(driver);
 
 
-    public SearchWithConditionsPage(WebDriver driver) {
+    public SearchWithFilterConditionsPage(WebDriver driver) {
         this.driver = driver;
         driver.get(URL);
         PageFactory.initElements(driver, this);
@@ -56,17 +56,17 @@ public class SearchWithConditionsPage {
     @FindBy(xpath = "//*[@class='hrArray hrArray_bulletDivided u-inlineBlock']")
     private WebElement searchResultText;
 
-    public SearchWithConditionsPage clickSearchIcon() {
+    public SearchWithFilterConditionsPage clickSearchIcon() {
         searchIcon.click();
         return this;
     }
-    public SearchWithConditionsPage clickCatsOption() {
+    public SearchWithFilterConditionsPage clickCatsOption() {
        catsOption.click();
        findPetsButton.click();
         return this;
     }
 
-    public SearchWithConditionsPage selectAge() {
+    public SearchWithFilterConditionsPage selectAge() {
 
         Util.waitForElementLocatedBy(driver, AGE_SELECT_BUTTON ).click();
         Util.waitForElementLocatedBy(driver, KITTEN_SELECT_BUTTON).click();
@@ -75,14 +75,14 @@ public class SearchWithConditionsPage {
     }
 
 
-    public SearchWithConditionsPage clickLongHairOption() {
+    public SearchWithFilterConditionsPage clickLongHairOption() {
         coatSelectButton.click();
         actions.pause(1000).perform();
         driver.findElements(By.xpath(COAT_SELECT_BUTTON)).get(3).click();
         return this;
     }
 
-    public SearchWithConditionsPage clickGenderSelectButton() {
+    public SearchWithFilterConditionsPage clickGenderSelectButton() {
         genderSelectButton.click();
         actions.pause(1000).perform();
         driver.findElements(By.xpath(GENDER_SELECT_BUTTON)).get(1).click();
@@ -90,7 +90,7 @@ public class SearchWithConditionsPage {
         return this;
     }
 
-    public SearchWithConditionsPage clickSomeCat(){
+    public SearchWithFilterConditionsPage clickSomeCat(){
 
         actions.pause(1000).perform();
         driver.findElements(By.xpath(GET_CAT_CARD)).get(1).click();

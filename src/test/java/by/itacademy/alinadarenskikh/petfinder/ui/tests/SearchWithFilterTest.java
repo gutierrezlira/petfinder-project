@@ -1,7 +1,7 @@
 package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
-import by.itacademy.alinadarenskikh.petfinder.ui.pages.SearchWithConditionsPage;
+import by.itacademy.alinadarenskikh.petfinder.ui.pages.SearchWithFilterConditionsPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,14 +10,14 @@ import org.openqa.selenium.WebDriver;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SearchWithConditionsPageTest {
+public class SearchWithFilterTest {
     WebDriver driver;
-    SearchWithConditionsPage searchPage;
+    SearchWithFilterConditionsPage searchPage;
 
     @BeforeEach
     public void setUp() {
         driver = Driver.getDriver();
-        searchPage = new SearchWithConditionsPage(driver);
+        searchPage = new SearchWithFilterConditionsPage(driver);
         driver.get(searchPage.URL);
     }
 

@@ -4,11 +4,13 @@ import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
 import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderSearchPage;
 import by.itacademy.alinadarenskikh.petfinder.ui.util.Util;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,6 +33,7 @@ public class SearchTest {
 
         assertFalse(searchPage.isSEarchResultEmpty().isEmpty(), "Search results are empty");
     }
+
 
  /*  @Test
     public void searchResultIsLocationIsCorrect() throws InterruptedException {

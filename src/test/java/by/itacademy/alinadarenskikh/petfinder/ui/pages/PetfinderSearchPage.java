@@ -2,9 +2,12 @@ package by.itacademy.alinadarenskikh.petfinder.ui.pages;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
 import by.itacademy.alinadarenskikh.petfinder.ui.util.Util;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,5 +56,7 @@ public class PetfinderSearchPage {
               (Arrays.asList(Util.waitForElementLocatedBy(driver, By.className("petCard-body"))));
     return petCards;
     }
+
+
 
 }
