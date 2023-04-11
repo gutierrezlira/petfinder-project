@@ -4,6 +4,8 @@ import by.itacademy.alinadarenskikh.petfinder.api.token.PetfinderGetToken;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
@@ -116,4 +118,25 @@ public class PetfinderAPITest {
                 .body("animals[4].type", equalTo("Dog"));
         //.body("animals[].type", everyItem(equalTo("Dog")))
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Young, bird, 10",
+            "Adult, cat, 10",
+            "Senior, dog, 10"
+    })
+    public void testQuery(String age, String animal, int count) {
+
+        Response response = given()
+                .header("Authorization", "Bearer " + accessToken)
+                .queryParam("age", age)
+                .queryParam("type", animal)
+                .queryParam("limit", count)
+                .get("/v2/animals");
+
+        Assertions.assertEquals(200, response.getStatusCode());
+        Assertions.assertNotNull(response.getBody().jsonPath().getList("animals"));
+        Assertions.assertTrue(response.getBody().jsonPath().getList("animals").size() <= count);
+    }
+
 }

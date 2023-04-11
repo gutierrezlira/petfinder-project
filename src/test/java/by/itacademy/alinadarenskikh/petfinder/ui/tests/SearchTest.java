@@ -59,10 +59,10 @@ public class SearchTest {
             assertTrue(searchPage.getListOfSearchResult(), "Search results contain a cat animal");
         }
 
-/*    @AfterEach
+    @AfterEach
     public void tearDown(){
         {
             Driver.close();
         }
-    }*/
+    }
 }

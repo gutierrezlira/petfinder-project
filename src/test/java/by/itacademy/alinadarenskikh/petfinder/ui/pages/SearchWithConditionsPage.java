@@ -93,7 +93,7 @@ public class SearchWithConditionsPage {
     public SearchWithConditionsPage clickSomeCat(){
 
         actions.pause(1000).perform();
-        driver.findElements(By.xpath(GET_CAT_CARD)).get(3).click();
+        driver.findElements(By.xpath(GET_CAT_CARD)).get(1).click();
         actions.pause(1000).perform();
         return this;
     }
