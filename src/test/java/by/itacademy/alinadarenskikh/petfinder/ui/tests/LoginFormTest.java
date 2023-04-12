@@ -2,25 +2,12 @@ package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.steps.PetfinderPageSteps;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
-
-import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
-import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderPage;
 import by.itacademy.alinadarenskikh.petfinder.ui.util.UserData;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoginFormTest {
-    WebDriver  driver;
-    // PetfinderPage petPage;
-    PetfinderPageSteps pageSteps;
-
-    @BeforeEach
-    public void setUp() {
-        driver = Driver.getDriver();
-        pageSteps = new PetfinderPageSteps();
-        driver.get(pageSteps.URL);
-    }
+public class LoginFormTest extends BaseTest{
+    PetfinderPageSteps pageSteps = new PetfinderPageSteps();;
 
     @Test
     @DisplayName("Verify Petfinder is open")
@@ -62,12 +49,8 @@ public class LoginFormTest {
   @Test
   @DisplayName("Verify empty fields")
   public void testEmptyFields() {
-      assertEquals("Element is required", pageSteps.fillEmptyFields());
+
+        assertEquals("Element is required", pageSteps.fillEmptyFields());
   }
 
-
-    @AfterEach
-    public void tearDown() {
-    Driver.close();
-    }
 }

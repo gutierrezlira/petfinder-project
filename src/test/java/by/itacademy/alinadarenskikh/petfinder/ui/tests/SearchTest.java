@@ -1,28 +1,12 @@
 package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
-import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
 import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderSearchPage;
-import by.itacademy.alinadarenskikh.petfinder.ui.util.Util;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SearchTest {
-    WebDriver driver;
-    PetfinderSearchPage searchPage;
-
-    @BeforeEach
-    public void setUp() {
-        driver = Driver.getDriver();
-        searchPage = new PetfinderSearchPage(driver);
-        driver.get(searchPage.URL);
-    }
+public class SearchTest extends BaseTest {
+    PetfinderSearchPage searchPage = new PetfinderSearchPage();
 
    @Test
     public void searchResultNotEmpty(){
@@ -58,11 +42,4 @@ public class SearchTest {
 
             assertTrue(searchPage.getListOfSearchResult(), "Search results contain a cat animal");
         }
-
-    @AfterEach
-    public void tearDown(){
-        {
-            Driver.close();
-        }
-    }
 }

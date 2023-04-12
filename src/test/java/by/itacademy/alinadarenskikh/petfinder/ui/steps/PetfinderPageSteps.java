@@ -2,8 +2,7 @@ package by.itacademy.alinadarenskikh.petfinder.ui.steps;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
 import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderPage;
-import by.itacademy.alinadarenskikh.petfinder.ui.pages.SearchWithFilterPage;
-import org.openqa.selenium.WebDriver;
+
 
 public class PetfinderPageSteps extends PetfinderPage {
 
@@ -21,6 +20,7 @@ public class PetfinderPageSteps extends PetfinderPage {
 
     public PetfinderPageSteps fillLoginForm(String email, String password) {
         petfinderPage.fillLoginForm(email, password);
+
         return this;
     }
 
