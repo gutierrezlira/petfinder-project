@@ -18,6 +18,15 @@ public class SearchTest extends BaseTest {
         assertFalse(searchPage.isSEarchResultEmpty().isEmpty(), "Search results are empty");
     }
 
+    @Test
+    @DisplayName("Search results contain cat")
+    public void searchResultsContainCat() {
+        searchPage
+                .sendKeys("cat", "New York");
+
+        assertTrue(searchPage.getListOfSearchResult(), "Search results contain a cat animal");
+    }
+
  /*  @Test
  @DisplayName("Search result is in correct location"
     public void searchResultIsLocationIsCorrect() throws InterruptedException {
@@ -38,12 +47,4 @@ public class SearchTest extends BaseTest {
         assertEquals(searchPage.LOCATION_KEY, actualLocation);
     }*/
 
-    @Test
-    @DisplayName("Search results contain cat")
-    public void searchResultsContainCat() {
-        searchPage
-                .sendKeys("cat", "New York");
-
-            assertTrue(searchPage.getListOfSearchResult(), "Search results contain a cat animal");
-        }
 }
