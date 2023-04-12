@@ -11,11 +11,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PetfinderSearchPage {
+
     public static WebDriver driver = Driver.getDriver();
 
-    public PetfinderSearchPage(WebDriver driver) {
+    public PetfinderSearchPage() {
         this.driver = driver;
-        driver.get(URL);
     }
 
     public final String URL = "https://www.petfinder.com";
@@ -53,5 +53,4 @@ public class PetfinderSearchPage {
               (Arrays.asList(Util.waitForElementLocatedBy(driver, By.className("petCard-body"))));
     return petCards;
     }
-
 }
