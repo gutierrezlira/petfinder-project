@@ -16,8 +16,8 @@ public class BaseTest {
         driver.get(HomePage.URL);
     }
 
- /*   @AfterEach
+    @AfterEach
     public void tearDown() {
         Driver.close();
-    }*/
+    }
 }

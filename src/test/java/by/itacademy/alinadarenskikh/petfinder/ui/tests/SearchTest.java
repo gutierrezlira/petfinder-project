@@ -1,6 +1,7 @@
 package by.itacademy.alinadarenskikh.petfinder.ui.tests;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderSearchPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,6 +10,7 @@ public class SearchTest extends BaseTest {
     PetfinderSearchPage searchPage = new PetfinderSearchPage();
 
    @Test
+   @DisplayName("Search result is not empty")
     public void searchResultNotEmpty(){
        searchPage
                .sendKeys("cat", "New York");
@@ -17,6 +19,7 @@ public class SearchTest extends BaseTest {
     }
 
  /*  @Test
+ @DisplayName("Search result is in correct location"
     public void searchResultIsLocationIsCorrect() throws InterruptedException {
         searchPage
                 .sendKeys("", "Mexico");
@@ -36,6 +39,7 @@ public class SearchTest extends BaseTest {
     }*/
 
     @Test
+    @DisplayName("Search results contain cat")
     public void searchResultsContainCat() {
         searchPage
                 .sendKeys("cat", "New York");

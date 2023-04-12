@@ -1,7 +1,6 @@
 package by.itacademy.alinadarenskikh.petfinder.ui.steps;
 
 import by.itacademy.alinadarenskikh.petfinder.ui.driver.Driver;
-import by.itacademy.alinadarenskikh.petfinder.ui.pages.PetfinderPage;
 import by.itacademy.alinadarenskikh.petfinder.ui.pages.SearchWithFilterPage;
 import org.openqa.selenium.WebDriver;
 
