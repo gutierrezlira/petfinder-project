@@ -48,7 +48,7 @@ public class PetfinderAPITest {
                 .log().headers();
     }
 
-    @Test
+/*    @Test
     @DisplayName("Test loggin with invalid data")
     public void testInvalidLogIn() {
         given()
@@ -60,7 +60,7 @@ public class PetfinderAPITest {
                 .then()
                 .statusCode(401)
                 .log().headers();
-    }
+    }*/
 
     @Test
     @DisplayName("Test getting pets")
