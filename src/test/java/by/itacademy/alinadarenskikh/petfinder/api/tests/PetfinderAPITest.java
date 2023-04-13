@@ -1,6 +1,7 @@
 package by.itacademy.alinadarenskikh.petfinder.api.tests;
 
 import by.itacademy.alinadarenskikh.petfinder.api.token.PetfinderGetToken;
+import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
@@ -13,9 +14,9 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class PetfinderAPITest {
-    public static final String VALID_PASSWORD ="hs6BmLKIgVrZuFmnV7bM";
-    public static final String VALID_LOGIN = "dawmond@mail.ru";
+
     private static String accessToken;
+    static Faker faker = new Faker();
 
     @BeforeAll
     public static void setUp() throws Exception {
@@ -48,19 +49,20 @@ public class PetfinderAPITest {
                 .log().headers();
     }
 
-/*    @Test
+   @Test
     @DisplayName("Test loggin with invalid data")
     public void testInvalidLogIn() {
         given()
+                //.header("Authorization", "Bearer " + accessToken)
                 .contentType("application/x-www-form-urlencoded")
-                .formParam("Email", "damond@mil.ru")
-                .formParam("Password", "0000")
+                .formParam("Email", faker.internet().emailAddress())
+                .formParam("Password", faker.internet().password(4, 10))
                 .when()
-                .post("https://www.petfinder.com/user/login/")
+                .post(" https://www.petfinder.com/user/login/")
                 .then()
-                .statusCode(401)
+                .statusCode(200)
                 .log().headers();
-    }*/
+    }
 
     @Test
     @DisplayName("Test getting pets")
@@ -121,10 +123,11 @@ public class PetfinderAPITest {
 
     @ParameterizedTest
     @CsvSource({
-            "Young, bird, 10",
-            "Adult, cat, 10",
-            "Senior, dog, 10"
+            "Young, bird, 5",
+            "Adult, cat, 5",
+            "Senior, dog, 5"
     })
+    @DisplayName("Test animal query API endpoint with different parameters")
     public void testQuery(String age, String animal, int count) {
 
         Response response = given()
@@ -132,11 +135,14 @@ public class PetfinderAPITest {
                 .queryParam("age", age)
                 .queryParam("type", animal)
                 .queryParam("limit", count)
+                .when()
                 .get("/v2/animals");
+
+
+        System.out.println(response.getBody().jsonPath().getList("animals"));
 
         Assertions.assertEquals(200, response.getStatusCode());
         Assertions.assertNotNull(response.getBody().jsonPath().getList("animals"));
         Assertions.assertTrue(response.getBody().jsonPath().getList("animals").size() <= count);
     }
-
 }
