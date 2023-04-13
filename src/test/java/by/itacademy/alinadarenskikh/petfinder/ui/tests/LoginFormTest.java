@@ -52,5 +52,4 @@ public class LoginFormTest extends BaseTest{
 
         assertEquals("Element is required", pageSteps.fillEmptyFields());
   }
-
 }
