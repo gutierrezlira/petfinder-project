@@ -14,10 +14,6 @@ public class PetfinderSearchPage {
 
     public static WebDriver driver = Driver.getDriver();
 
-    public PetfinderSearchPage() {
-        this.driver = driver;
-    }
-
     public final String URL = "https://www.petfinder.com";
     final public By SEARCH_ANIMAL_TYPE = By.id("simpleSearchAnimalType");
     final public By SEARCH_LOCATION = By.id("simpleSearchLocation");
@@ -25,6 +21,7 @@ public class PetfinderSearchPage {
     final public String LOCATION_KEY = "New York";
     final public String TYPE_OF_ANIMAL = "cat";
     final public String CURRENT_LOCATION = "//span[@data-test='Suggester_Current_Label']";
+    public final String SEARCH_FORM_LOCATION_INPUT = "//input[@id='Interceptor_Form_Location']";
 
     public PetfinderSearchPage sendKeys(String animalType, String location) {
         driver.findElement(SEARCH_ANIMAL_TYPE).sendKeys(animalType);
@@ -33,14 +30,23 @@ public class PetfinderSearchPage {
         return this;
     }
 
-    public boolean getListOfSearchResult() {
-
+    public boolean isAnimalTypeFound(String animalType) {
         List<WebElement> petCards = driver.findElements(By.cssSelector(".petCard-body-details-hdg .u-isVisuallyHidden"));
         for (WebElement petCard : petCards) {
-            String animalType = petCard.getText();
-            animalType.contains("Cat");
+            String currentAnimalType = petCard.getText();
+            if (currentAnimalType.contains(animalType)) {
+                return true;
+            }
         }
-        return true;
+        return false;
+    }
+
+    public PetfinderSearchPage closeSearchConfirmationForm(){
+
+        driver.findElement(By.className("checkboxCard-bd-icon")).click();
+        driver.findElement(By.xpath("//button[@data-test='Interceptor_Submit_Button']")).click();
+
+        return this;
     }
 
     public PetfinderSearchPage getActualLocation(){
@@ -48,9 +54,7 @@ public class PetfinderSearchPage {
         return this;
     }
 
-    public List isSEarchResultEmpty(){
-      List<WebElement> petCards = new ArrayList<>
-              (Arrays.asList(Util.waitForElementLocatedBy(driver, By.className("petCard-body"))));
-    return petCards;
+    public List<WebElement> isSEarchResultEmpty(){
+        return driver.findElements(By.className("petCard-body"));
     }
 }
