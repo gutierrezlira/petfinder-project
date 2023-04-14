@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Tests for Search With Filter Page")
 public class SearchWithFilterPageTest extends BaseTest {
-    SearchWithFilterStep searchStep =new SearchWithFilterStep(new SearchWithFilterPage(driver));
+    SearchWithFilterStep searchStep = new SearchWithFilterStep(new SearchWithFilterPage(driver));
 
    @Test
    @DisplayName("Find perfect pet match with parameters")
