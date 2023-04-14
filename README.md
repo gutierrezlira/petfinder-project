@@ -1,7 +1,7 @@
 
 # petfinder-project
 
-![Petfinder Logo](https://raw.githubusercontent.com/gutierrezlira/petfinder-project/a330d7ab5e77b2a238cdf7202a1b95cd5909ffc7/dog-adoption-website-petfinder.jpg)
+![Petfinder Logo](https://github.com/gutierrezlira/petfinder-project/blob/master/doc/dog-adoption-website-petfinder.jpg)
 
 Добро пожаловать в репозиторий проекта Petfinder! Здесь вы найдете автоматизированные тесты UI и API частей сайта Petfinder.
 
