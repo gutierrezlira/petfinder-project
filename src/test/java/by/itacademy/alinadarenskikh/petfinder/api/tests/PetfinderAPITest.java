@@ -16,7 +16,6 @@ import static org.hamcrest.Matchers.*;
 public class PetfinderAPITest {
 
     private static String accessToken;
-    static Faker faker = new Faker();
 
     @BeforeAll
     public static void setUp() throws Exception {
@@ -52,6 +51,9 @@ public class PetfinderAPITest {
    @Test
     @DisplayName("Test loggin with invalid data")
     public void testInvalidLogIn() {
+
+        Faker faker = new Faker();
+
         given()
                 //.header("Authorization", "Bearer " + accessToken)
                 .contentType("application/x-www-form-urlencoded")
@@ -137,9 +139,6 @@ public class PetfinderAPITest {
                 .queryParam("limit", count)
                 .when()
                 .get("/v2/animals");
-
-
-        System.out.println(response.getBody().jsonPath().getList("animals"));
 
         Assertions.assertEquals(200, response.getStatusCode());
         Assertions.assertNotNull(response.getBody().jsonPath().getList("animals"));
