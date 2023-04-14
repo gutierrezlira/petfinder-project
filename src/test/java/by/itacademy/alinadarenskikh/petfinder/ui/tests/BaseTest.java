@@ -12,7 +12,6 @@ public class BaseTest {
 
     @BeforeEach
     public void setUp() {
-        driver = Driver.getDriver();
         driver.get(HomePage.URL);
     }
 
