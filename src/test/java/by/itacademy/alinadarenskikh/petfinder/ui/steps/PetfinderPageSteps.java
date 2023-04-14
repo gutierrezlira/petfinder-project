@@ -41,6 +41,4 @@ public class PetfinderPageSteps extends PetfinderPage {
         return petfinderPage.fillEmptyFields();
     }
 
-
-
 }
