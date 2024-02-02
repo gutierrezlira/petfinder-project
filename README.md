@@ -3,14 +3,14 @@
 
 ![Petfinder Logo](https://github.com/gutierrezlira/petfinder-project/blob/master/doc/dog-adoption-website-petfinder.jpg)
 
-Добро пожаловать в репозиторий проекта Petfinder! Здесь вы найдете автоматизированные тесты UI и API частей сайта Petfinder.
+Welcome to the Petfinder project repository! Here you will find automated tests of UI and API parts of the Petfinder website.
 
-Структура репозитория состоит из двух основных папок: ui_tests и api_tests. Папка ui_tests содержит автоматизированные UI тесты, написанные с использованием Selenium WebDriver и языка программирования Java. Эти тесты позволяют проверить, что пользовательский интерфейс сайта Petfinder работает должным образом и соответствует ожиданиям пользователя.
+The repository structure consists of two main folders: ui_tests and api_tests. The ui_tests folder contains automated UI tests written using Selenium WebDriver and the Java programming language. These tests verify that the user interface of the Petfinder site works as expected and meets user expectations.
 
-Папка api_tests содержит автоматизированные API тесты, написанные с использованием библиотеки Rest-Assured и языка программирования Java. Эти тесты проверяют, что API Petfinder работает должным образом и возвращает ожидаемые результаты.
+The api_tests folder contains automated API tests written using the Rest-Assured library and the Java programming language. These tests verify that the Petfinder API works as expected and returns the expected results.
 
-Каждая папка содержит набор файлов с тестами, разделенных на логические группы. В каждом файле содержится набор тестов, написанных в соответствии с паттерном Page Object. Это позволяет упростить поддержку тестов, так как все элементы страницы вынесены в отдельный класс и могут быть легко изменены без изменения самих тестов.
+Each folder contains a set of files with tests, divided into logical groups. Each file contains a set of tests written according to the Page Object pattern. This makes it easier to support tests, since all page elements are placed in a separate class and can be easily changed without changing the tests themselves.
 
-Тесты в репозитории покрывают основные функциональные возможности сайта Petfinder, такие как поиск животных по различным критериям, добавление нового животного в базу данных, а также проверку наличия нужных данных в ответе API.
+The tests in the repository cover the core functionality of the Petfinder site, such as searching for animals based on various criteria, adding a new animal to the database, and checking whether the required data is present in the API response.
 
-Мы надеемся, что наш репозиторий поможет вам понять, как можно автоматизировать тестирование UI и API частей веб-приложений с помощью современных инструментов и технологий. Не стесняйтесь задавать вопросы и делать pull-requestы, если у вас есть предложения по улучшению тестов или добавлению новых функциональных возможностей.
+We hope that our repository will help you understand how you can automate testing of UI and API parts of web applications using modern tools and technologies. Feel free to ask questions and make pull requests if you have suggestions for improving the tests or adding new functionality.
